@@ -8,15 +8,16 @@
 
 // I AM NOT DONE
 
-struct Wrapper {
-    value: u32,
+struct Wrapper <T>{
+    value: T,
 }
 
-impl Wrapper {
-    pub fn new(value: u32) -> Self {
+impl <T> Wrapper<T> {
+    pub fn new(value: T) -> Self {
         Wrapper { value }
     }
 }
+
 
 #[cfg(test)]
 mod tests {
@@ -32,3 +33,10 @@ mod tests {
         assert_eq!(Wrapper::new("Foo").value, "Foo");
     }
 }
+
+
+//hints
+// Currently we are wrapping only values of type 'u32'.
+// Maybe we could update the explicit references to this data type somehow?
+// If you are still stuck https://doc.rust-lang.org/stable/book/ch10-01-syntax.html#in-method-definitions
+
